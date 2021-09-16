@@ -13,7 +13,8 @@ func RouterSetting() *gin.Engine {
 	product := ENGINE.Group("products")
 	ENGINE.GET("/", func(c *gin.Context) {
 		c.SecureJSON(http.StatusOK, gin.H{
-			"app_name":      "ARAFAT CELL",
+			"app_name":      "ARAFAT CELL' SALES TELEGRAM",
+			"desc":          "This just for webhook",
 			"lang":          "GO-Lang",
 			"email_support": "yudhioktaviangule@gmail.com",
 		})
