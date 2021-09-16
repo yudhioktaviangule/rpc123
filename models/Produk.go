@@ -21,7 +21,7 @@ type Produk struct {
 	Gpu            string   `json:"gpu"`
 	Battery        string   `json:"battery"`
 	Stok           int      `json:"stok"`
-	Simcard        int      `json:"Simcard"`
+	Simcard        string   `json:"Simcard"`
 	KategoriId     int      `json:"kategori_id"`
 	Kategori       Kategori `gorm:"foreignKey:kategori_id;references:id;constraint:onDelete:CASCADE"`
 	gorm.Model
