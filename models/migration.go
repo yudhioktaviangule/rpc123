@@ -10,6 +10,7 @@ func Migrate() {
 		&Pelanggan{},
 		&Produk{},
 		&Transaksi{},
+		&AkunBank{},
 	)
 
 	defer conn.Close()

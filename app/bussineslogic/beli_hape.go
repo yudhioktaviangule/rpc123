@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"strconv"
 	"strings"
-	"tele-dialog-hooks/config"
 	"tele-dialog-hooks/models"
 )
 
@@ -61,9 +60,9 @@ func UpdateTransaksiHP(qtext string) string {
 	transkasiku.Qty = tqt
 	transkasiku = models.UpdateDataTransaksi(transkasiku)
 	trans.Actions = "beli.done"
-
+	nama, norek, an := models.AkunBankGet()
 	harga := transkasiku.HargaTransaksi * float64(transkasiku.Qty)
-	trans.Text = fmt.Sprintf("Pembelian Berhasil Silahkan melakukan pembayaran melalui Bank %s ke nomor rekening %s Atas nama %s sejumlah %.0f", config.BANK, config.NOMOR_REK, config.ATAS_NAMA, harga)
+	trans.Text = fmt.Sprintf("Pembelian Berhasil Silahkan melakukan pembayaran melalui Bank %s ke nomor rekening %s Atas nama %s sejumlah %.0f", nama, norek, an, harga)
 	trans.Data = transkasiku
 	fmt.Println(transkasiku.PelangganId)
 	jsonM, _ := json.Marshal(trans)

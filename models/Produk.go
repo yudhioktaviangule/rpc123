@@ -7,16 +7,23 @@ import (
 )
 
 type Produk struct {
-	ID         int      `gorm:"primaryKey:autoIncrement" json:"id"`
-	Inisial    string   `json:"inisial" gorm:"unique"`
-	Name       string   `json:"name"`
-	Harga      float64  `json:"harga"`
-	Gambar     string   `json:"gambar"`
-	Ram        string   `json:"ram"`
-	Memori     string   `json:"memori"`
-	Stok       int      `json:"stok"`
-	KategoriId int      `json:"kategori_id"`
-	Kategori   Kategori `gorm:"foreignKey:kategori_id;references:id;constraint:onDelete:CASCADE"`
+	ID             int      `gorm:"primaryKey:autoIncrement" json:"id"`
+	Inisial        string   `json:"inisial" gorm:"unique"`
+	Name           string   `json:"name"`
+	Harga          float64  `json:"harga"`
+	Gambar         string   `json:"gambar"`
+	Ram            string   `json:"ram"`
+	Memori         string   `json:"memori"`
+	KameraDepan    string   `json:"kamera_depan"`
+	KameraBelakang string   `json:"kamera_belakang"`
+	Layar          string   `json:"layar"`
+	Cpu            string   `json:"cpu"`
+	Gpu            string   `json:"gpu"`
+	Battery        string   `json:"battery"`
+	Stok           int      `json:"stok"`
+	Simcard        int      `json:"Simcard"`
+	KategoriId     int      `json:"kategori_id"`
+	Kategori       Kategori `gorm:"foreignKey:kategori_id;references:id;constraint:onDelete:CASCADE"`
 	gorm.Model
 }
 
